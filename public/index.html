@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TikTok Video Downloader - No Watermark, HD</title>
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}</script>
+<meta name="description" content="Download TikTok videos in HD without watermark. Paste the link and save the video or MP3.">
+<script src="https://quge5.com/88/tag.min.js" data-zone="290405" async data-cfasync="false"></script>
+<style>
+:root{--bg:#080812;--bg2:#16163a;--tx:#f5f7ff;--mut:rgba(245,247,255,.62);--cy:#25f4ee;--pk:#fe2c55;--g1:#25f4ee;--g2:#fe2c55;--glass:rgba(255,255,255,.09);--edge:rgba(255,255,255,.24);--shadow:rgba(0,0,0,.4);--hi:rgba(255,255,255,.35);--field:rgba(255,255,255,.07);--chip:rgba(255,255,255,.12);color-scheme:dark}
+:root[data-theme="light"]{--bg:#eef1fb;--bg2:#d9e1ff;--tx:#14172b;--mut:rgba(20,23,43,.68);--cy:#0a7f8c;--pk:#d6204a;--glass:rgba(255,255,255,.62);--edge:rgba(20,23,43,.14);--shadow:rgba(60,70,130,.2);--hi:rgba(255,255,255,.9);--field:rgba(255,255,255,.75);--chip:rgba(20,23,43,.07);color-scheme:light}
+:root[data-theme="light"] .orb{opacity:.22}
+*{box-sizing:border-box}
+html{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--tx);font-family:"Outfit","Segoe UI",system-ui,sans-serif;background:radial-gradient(1200px 700px at 10% -10%,var(--bg2),transparent),var(--bg);overflow-x:hidden}
+.orb{position:fixed;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;z-index:0}
+.o1{width:320px;height:320px;background:var(--g1);top:-100px;right:-80px;opacity:.35}
+.o2{width:300px;height:300px;background:var(--g2);bottom:-90px;left:-90px;opacity:.4}
+.wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:28px 16px 40px}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:28px;backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);box-shadow:0 14px 40px var(--shadow),inset 0 1px 0 var(--hi)}
+h1{font-size:30px;line-height:1.15;margin:8px 0 6px;font-weight:700}
+.lead{color:var(--mut);margin:0 0 22px;font-size:15px}
+.box{padding:18px}
+.in{display:flex;gap:8px;margin-bottom:12px}
+input{flex:1;min-width:0;padding:15px 16px;border-radius:18px;border:1px solid var(--edge);background:var(--field);color:var(--tx);font:inherit;font-size:16px;outline:none}
+input:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:18px;border:1px solid var(--edge);background:var(--chip);color:var(--tx);font:inherit;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap}
+.go{width:100%;border:0;font-size:17px;color:#07070f;background:linear-gradient(120deg,var(--g1),#fff 55%,var(--g2));background-size:180% 100%;transition:background-position .4s}
+.go:hover{background-position:100% 0}
+.go:disabled{opacity:.6;cursor:wait}
+#msg{min-height:22px;margin:12px 2px 0;color:var(--mut);font-size:14px}
+.res{margin-top:16px;padding:16px;display:flex;gap:14px}
+.res[hidden]{display:none}
+.res img{width:96px;height:128px;object-fit:cover;border-radius:16px;flex:none;background:var(--chip)}
+.meta{min-width:0;flex:1}
+.meta b{display:block;font-size:15px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.meta span{display:block;color:var(--mut);font-size:13px;margin:4px 0 12px}
+.acts{display:flex;flex-direction:column;gap:8px}
+.acts .btn{padding:11px 14px;font-size:14px}
+.acts .main{border:0;color:#07070f;background:linear-gradient(120deg,var(--g1),var(--g2))}
+.ad{margin:16px auto;max-width:100%;text-align:center;overflow:hidden}
+.ad:empty{display:none}
+.how{margin-top:22px;padding:18px 20px;color:var(--mut);font-size:14px;line-height:1.7}
+.how b{color:var(--tx)}
+footer{margin-top:22px;text-align:center;color:var(--mut);font-size:12px;line-height:1.6}
+@media (max-width:420px){.res{flex-direction:column}.res img{width:100%;height:200px}}
+footer a{color:var(--cy)}
+.tbtn{position:absolute;top:22px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--edge);background:var(--glass);color:var(--tx);font-size:20px;line-height:1;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+h1{padding-right:54px}
+.btn.main{border:0;color:#07070f;background:linear-gradient(120deg,var(--g1),var(--g2))}
+.photos{margin-top:16px;padding:16px}
+.photos[hidden]{display:none}
+.ph-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.ph-head b{font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.grid a{position:relative;display:block;border-radius:16px;overflow:hidden;border:1px solid var(--edge)}
+.grid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--chip)}
+.grid span{position:absolute;left:6px;bottom:6px;padding:4px 10px;border-radius:99px;background:rgba(0,0,0,.6);color:#fff;font-size:12px}
+</style>
+</head>
+<body>
+<div class="orb o1"></div><div class="orb o2"></div>
+<main class="wrap">
+  <button class="tbtn" id="theme" type="button" aria-label="Switch theme"></button>
+  <h1>Download TikTok videos without watermark</h1>
+  <p class="lead">Paste the link, get the HD video, the photos or just the music.</p>
+
+  <!-- AD SLOT 1 (top banner): paste ad code between the tags -->
+  <div class="ad" id="ad-top"></div>
+
+  <section class="glass box">
+    <div class="in">
+      <input id="url" type="url" inputmode="url" placeholder="Paste TikTok link here" aria-label="TikTok link" autocomplete="off">
+      <button class="btn" id="paste" type="button">Paste</button>
+    </div>
+    <button class="btn go" id="go" type="button">Download</button>
+    <div id="msg" role="status"></div>
+  </section>
+
+  <!-- AD SLOT 2 (middle): paste ad code between the tags -->
+  <div class="ad" id="ad-mid"></div>
+
+  <section class="glass res" id="res" hidden>
+    <img id="cover" alt="Video thumbnail" referrerpolicy="no-referrer">
+    <div class="meta">
+      <b id="title"></b>
+      <span id="author"></span>
+      <div class="acts">
+        <a class="btn main" id="b-hd" href="#">Download HD video</a>
+        <a class="btn" id="b-sd" href="#">Download video</a>
+        <a class="btn" id="b-mp3" href="#">Download MP3</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="glass photos" id="photos" hidden>
+    <div class="ph-head"><b id="ph-count"></b><button class="btn main" id="b-all" type="button">Download all photos</button></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="glass how">
+    <b>How it works</b><br>
+    Open TikTok, tap Share, then Copy link. Paste it above and tap Download. Works on phone and computer, no app or sign-up needed.
+  </section>
+
+  <!-- AD SLOT 3 (bottom): paste ad code between the tags -->
+  <div class="ad" id="ad-bottom"></div>
+
+  <footer>For personal use only. Respect the creator's rights.<br>This site is not affiliated with TikTok.<br><a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Use</a></footer>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const url = $('#url'), go = $('#go'), msg = $('#msg'), res = $('#res');
+
+const root = document.documentElement, tb = $('#theme');
+function paint() {
+  const light = root.dataset.theme === 'light';
+  tb.textContent = light ? '\u263E' : '\u2600\uFE0E';
+  tb.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+}
+tb.onclick = () => {
+  const n = root.dataset.theme === 'light' ? 'dark' : 'light';
+  root.dataset.theme = n;
+  try { localStorage.setItem('theme', n); } catch {}
+  paint();
+};
+paint();
+
+$('#paste').onclick = async () => {
+  try { url.value = (await navigator.clipboard.readText()).trim(); url.focus(); }
+  catch { msg.textContent = 'Allow clipboard access, or paste the link manually.'; }
+};
+url.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+go.onclick = run;
+
+const dl = (u, n, e) => '/api/download?u=' + encodeURIComponent(u) + '&n=' + encodeURIComponent(n) + '&e=' + e;
+
+$('#b-all').onclick = () => {
+  document.querySelectorAll('#grid a').forEach((a, i) => setTimeout(() => a.click(), i * 700));
+};
+
+async function run() {
+  const v = url.value.trim();
+  if (!v) { msg.textContent = 'Paste a TikTok link first.'; return; }
+  msg.textContent = 'Getting your video...';
+  res.hidden = true; $('#photos').hidden = true; go.disabled = true;
+  try {
+    const r = await fetch('/api/info?url=' + encodeURIComponent(v));
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || 'Something went wrong.');
+    const name = (d.author || 'tiktok') + '-' + Date.now().toString().slice(-5);
+    const imgs = d.images || [];
+    $('#cover').src = d.cover || imgs[0] || '';
+    $('#title').textContent = d.title;
+    $('#author').textContent = (d.author ? '@' + d.author : '') + (d.duration ? ' · ' + d.duration + 's' : '');
+    $('#b-hd').hidden = !d.hd; if (d.hd) $('#b-hd').href = dl(d.hd, name + '-hd', 'mp4');
+    $('#b-sd').hidden = !d.video; if (d.video) $('#b-sd').href = dl(d.video, name, 'mp4');
+    $('#b-mp3').hidden = !d.music; if (d.music) $('#b-mp3').href = dl(d.music, name, 'mp3');
+    const grid = $('#grid'); grid.innerHTML = '';
+    imgs.forEach((u, i) => {
+      const a = document.createElement('a');
+      a.href = dl(u, name + '-' + (i + 1), 'jpg'); a.setAttribute('download', '');
+      const im = document.createElement('img');
+      im.src = u; im.loading = 'lazy'; im.referrerPolicy = 'no-referrer'; im.alt = 'Photo ' + (i + 1);
+      const sp = document.createElement('span'); sp.textContent = 'Save';
+      a.append(im, sp); grid.appendChild(a);
+    });
+    $('#ph-count').textContent = imgs.length + (imgs.length === 1 ? ' photo' : ' photos');
+    $('#photos').hidden = !imgs.length;
+    res.hidden = false; msg.textContent = '';
+    res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } catch (e) { msg.textContent = e.message; }
+  go.disabled = false;
+}
+</script>
+</body>
+</html>
