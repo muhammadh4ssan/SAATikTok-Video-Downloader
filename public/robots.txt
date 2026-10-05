@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://saatiktokvideodownloader.hassanwebdev.site/sitemap.xml
+Sitemap: https://saatik.site/sitemap.xml
