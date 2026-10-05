@@ -5,6 +5,14 @@ const path = require('path');
 
 const app = express();
 app.set('trust proxy', 1); // Railway sits behind a proxy
+
+// Send the old subdomain and www to the main domain (permanent redirect for SEO)
+const MAIN = 'saatik.site';
+const OLD = ['saatiktokvideodownloader.hassanwebdev.site', 'www.saatik.site'];
+app.use((req, res, next) => {
+  if (OLD.includes(req.hostname)) return res.redirect(301, 'https://' + MAIN + req.originalUrl);
+  next();
+});
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 app.use('/api', rateLimit({ windowMs: 60000, limit: 20, standardHeaders: true, legacyHeaders: false }));
 
